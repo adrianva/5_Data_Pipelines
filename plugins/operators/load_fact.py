@@ -21,6 +21,11 @@ class LoadFactOperator(BaseOperator):
         self.sql = sql
 
     def execute(self, context):
+        """
+        Insert data into the facts table using some SQL query
+        
+        :param context: Context variables from Airflow
+        """
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         
         self.log.info("Loading data into fact table in Redshift")
