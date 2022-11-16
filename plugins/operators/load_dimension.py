@@ -22,6 +22,12 @@ class LoadDimensionOperator(BaseOperator):
         self.truncate = truncate
 
     def execute(self, context):
+        """
+        Insert data into the facts table using some SQL query.
+        If truncate is True, the table is truncated before inserting the data
+        
+        :param context: Context variables from Airflow
+        """
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
 
         if self.truncate:

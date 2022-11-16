@@ -50,9 +50,9 @@ class StageToRedshiftOperator(BaseOperator):
 
     def execute(self, context):
         """
-            Load the data from S3 to Redshift. First, it truncates the table in order to ensure that we don't load data twice
+        Load the data from S3 to Redshift. First, it truncates the table in order to ensure that we don't load data twice
             
-            :param context: Context variables from Airflow
+        :param context: Context variables from Airflow
         """
         aws_hook = AwsHook(self.aws_credentials_id)
         credentials = aws_hook.get_credentials()
