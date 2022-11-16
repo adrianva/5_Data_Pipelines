@@ -22,4 +22,4 @@ Assuming that Airflow and Redshift are up and running, we have to add two connec
 The final DAG looks like the followind image:
 ![Final DAG](/img/final_dag.png?raw=true "Final DAG")
 
-I have added a new task called create_tables after the begin execution task just to make sure that all the tables are created correctly every time the DAG is run instead of doing this separately.
+I have added a new task called create_tables after the begin execution task just to make sure that all the tables are created correctly every time the DAG is run instead of doing this separately. That's why I also moved the create_tables.py script into the dag folder, because it is a requirement of the PostgresOperator when we want to run a file.
